@@ -35,4 +35,23 @@
 
     {% endfor %}
     </div>
+
+<nav class="pages">
+<ul class="pagination justify-content-center" style="margin-bottom: 10%">
+    {% for page in paginator.page_range %}
+        {% if page_obj.number == page %}
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="{{ page }}">{{ page }}</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+</nav>
+
+
+
 {% endblock %}

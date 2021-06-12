@@ -9,7 +9,7 @@ from .models import BlogPosts
 class HomeView(ListView):
     model = BlogPosts
     template_name = "home.html"
-    paginate_by = 10
+    paginate_by = 3
 
     def get_queryset(self):
         post = BlogPosts.objects.filter(published=True, moderated=True)
@@ -25,7 +25,7 @@ class PostDetailView(DetailView):
 class CategoryView(ListView):
     model = BlogPosts
     template_name = "home.html"
-    paginate_by = 10
+    paginate_by = 3
 
     def get_queryset(self):
         posts = BlogPosts.objects.filter(category=self.kwargs['category_slug'], published=True, moderated=True)
