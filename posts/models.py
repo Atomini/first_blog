@@ -4,8 +4,8 @@ from django.utils import timezone
 
 class BlogPosts(models.Model):
     CATEGORIES = [
-        ('science', 'наука'),
-        ('sport', 'спорт'),
+        ('science', 'Наука'),
+        ('sport', 'Спорт'),
     ]
     title = models.CharField("Название", max_length=100, blank=False)
     post_slug = models.SlugField(max_length=200, unique=True, db_index=True, verbose_name="Url")

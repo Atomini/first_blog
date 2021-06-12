@@ -4,7 +4,19 @@
 {% block content %}
 
     <h1 style="margin-top: 3%; margin-bottom: 2%">{{ blogposts.title }}</h1>
-    <img src="{{ blogposts.into_image.url }}" class="img-fluid img-thumbnail">
+    <div class="conteiner" style="background-color: gainsboro;">
+        <div>
+        <img src="{{ blogposts.into_image.url }}" class="img-fluid img-thumbnail.div" , alt="Картинка не доступна(" style="max-height: 600px; display: block;margin-left: auto;margin-right: auto;width: auto; ">
+    </div></div>
+    <div class="conteiner"style="margin-top: 2%">
+        Автор : {{ blogposts.author.first_name }}<br>
+        Дата создания : {{ blogposts.published_time }} <br>
+        Категория : {{ blogposts.get_category_display }}<br>
+    </div>
+    <div class="conteiner" style="margin-top: 20px; margin-bottom: 50px">
+        <h3 style="text-align: justify;">
+            {{ blogposts.post_text }}
+        </h3>
+    </div>
 
-{{ blogposts.title }}
 {% endblock %}
