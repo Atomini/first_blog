@@ -18,4 +18,11 @@ class PostDetailView(DetailView):
     slug_field = "post_slug"
 
 
+class SportCategoryView(ListView):
+    model = BlogPosts
+    template_name = "sport_catalog_list.html"
+    paginate_by = 10
 
+    def get_queryset(self):
+        posts = BlogPosts.objects.filter(category="sport")
+        return posts.order_by("-published_time")
