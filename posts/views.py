@@ -9,7 +9,10 @@ class HomeView(ListView):
     model = BlogPosts
     template_name = "home.html"
     paginate_by = 10
-    ordering = ["-published_time"]
+
+    def get_queryset(self):
+        post = BlogPosts.objects.filter(published=True, moderated=True)
+        return post.order_by("-published_time")
 
 
 class PostDetailView(DetailView):
@@ -18,21 +21,11 @@ class PostDetailView(DetailView):
     slug_field = "post_slug"
 
 
-class SportCategoryView(ListView):
+class CategoryView(ListView):
     model = BlogPosts
-    template_name = "sport_catalog_list.html"
+    template_name = "home.html"
     paginate_by = 10
 
     def get_queryset(self):
-        posts = BlogPosts.objects.filter(category="sport")
-        return posts.order_by("-published_time")
-
-
-class ScienceCategoryView(ListView):
-    model = BlogPosts
-    template_name = "science_catalog_list.html"
-    paginate_by = 10
-
-    def get_queryset(self):
-        posts = BlogPosts.objects.filter(category="science")
+        posts = BlogPosts.objects.filter(category=self.kwargs['category_slug'], published=True, moderated=True)
         return posts.order_by("-published_time")
