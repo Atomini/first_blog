@@ -26,3 +26,13 @@ class SportCategoryView(ListView):
     def get_queryset(self):
         posts = BlogPosts.objects.filter(category="sport")
         return posts.order_by("-published_time")
+
+
+class ScienceCategoryView(ListView):
+    model = BlogPosts
+    template_name = "science_catalog_list.html"
+    paginate_by = 10
+
+    def get_queryset(self):
+        posts = BlogPosts.objects.filter(category="science")
+        return posts.order_by("-published_time")
