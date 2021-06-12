@@ -4,6 +4,7 @@
 <h1 style="margin-top: 3%; margin-bottom: 2%">Наука</h1>
     <div class="container" style="margin-bottom: 100px">
     {% for post in blogposts_list %}
+        {% if post.published and post.moderated %}
         <div class="conteiner" style=" margin-top: 5%; margin-bottom: 2%">
         <h2><a href="{% url "post" post.post_slug%}", style="text-decoration: none; color: black;">{{ post.title }}</a>
         </h2></div>
@@ -30,7 +31,7 @@
                 <button type="button" class="btn btn-secondary btn-sm">Прочитать</button>
             </a></div>
         </div>
-
+        {% endif %}
     {% endfor %}
     </div>
 {% endblock %}
