@@ -32,6 +32,8 @@
           <a class="nav-link" href="/sport">
             <button class="btn btn-outline-success me-2" type="button" style="color: black; border-color: black; padding: 10px 40px;">Спорт</button>
           </a>
+        {% if user.is_authenticated %}
+
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/add-post">
@@ -39,6 +41,7 @@
           </a>
         </li>
       </ul>
+    {% endif %}
 
     </div>
       <a class="nav-link" href="/authorization">

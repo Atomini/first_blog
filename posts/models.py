@@ -9,7 +9,6 @@ class BlogPosts(models.Model):
     ]
     title = models.CharField("Название", max_length=100, blank=False)
     post_slug = models.SlugField(max_length=200, unique=True, db_index=True, verbose_name="Url")
-
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     published_time = models.DateTimeField("Дата публикации", default=timezone.now)
     category = models.CharField("Категория", choices=CATEGORIES, max_length=100)
