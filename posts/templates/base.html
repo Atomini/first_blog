@@ -19,25 +19,48 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">
+              <button class="btn btn-outline-success me-2" type="button" style="color: black; border-color: black; padding: 10px 30px;">Главная</button>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="/science">
+              <button class="btn btn-outline-success me-2" type="button" style="color: black; border-color: black; padding: 10px 40px;">Наука</button>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="/sport">
+            <button class="btn btn-outline-success me-2" type="button" style="color: black; border-color: black; padding: 10px 40px;">Спорт</button>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link" href="/add-post">
+            <button class="btn btn-outline-success me-2" type="button" style="color: black; border-color: dodgerblue; padding: 10px 40px;">Создать пост</button>
+          </a>
         </li>
       </ul>
+
     </div>
+      <a class="nav-link" href="/authorization">
+       <form class="d-flex">
+            <button class="btn btn-outline-success me-2" type="button" style="color: black; border-color: green; padding: 10px 40px;"> Войти </button>
+       </form></a>
   </div>
 </nav>
 
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col">
+        {% block content %}
 
-{% block content %}
-{% endblock %}
+        {% endblock %}
+    </div>
+    <div class="col-1"></div>
+  </div></div>
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"

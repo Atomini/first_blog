@@ -14,7 +14,7 @@ class BlogPosts(models.Model):
     published_time = models.DateTimeField("Дата публикации", default=timezone.now)
     category = models.CharField("Категория", choices=CATEGORIES, max_length=100)
 
-    into_image = models.ImageField("Картинка тизера", upload_to='posts/static/posts', blank=True)
+    into_image = models.ImageField("Картинка тизера", upload_to='images/', blank=True)
     into_text = models.CharField("Текст тизера", max_length=100, blank=False)
 
     post_text = models.TextField("Текст поста", blank=False)
