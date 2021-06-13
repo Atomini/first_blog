@@ -25,6 +25,7 @@ class CategoryView(ListView):
     model = BlogPosts
     template_name = "home.html"
     paginate_by = 3
+    allow_empty = False
 
     def get_queryset(self):
         posts = BlogPosts.objects.filter(category=self.kwargs['category_slug'], published=True, moderated=True)
