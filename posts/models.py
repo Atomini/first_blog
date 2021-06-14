@@ -10,8 +10,8 @@ class BlogPosts(models.Model):
         ('science', 'Наука'),
         ('sport', 'Спорт'),
     ]
-    title = models.CharField("Название", max_length=100, blank=False)
-    post_slug = models.SlugField(max_length=200, unique=True, db_index=True, verbose_name="Url", default=title)
+    title = models.CharField("Название", max_length=100, blank=False, unique=True)
+    post_slug = models.SlugField(max_length=200, unique=True, db_index=True, verbose_name="Url")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     published_time = models.DateTimeField("Дата публикации", default=timezone.now)
     category = models.CharField("Категория", choices=CATEGORIES, max_length=100)
