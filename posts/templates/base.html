@@ -42,13 +42,29 @@
         </li>
       </ul>
     {% endif %}
+    {% if user.is_authenticated %}
+         </div>
+      <form class="d-flex">
+      <a class="nav-link" href={% url 'logout' %}>
+            <button class="btn btn-outline-success me-2" type="button" style="color: black; border-color: green; padding: 10px 40px;"> Выйти </button>
+       </a></form>
+        </div>
+    {% else %}
+        </div>
+            <form class="d-flex">
+                <a class="nav-link" href={% url 'login' %}>
+                    <button class="btn btn-outline-success me-2" type="button" style="color: black; border-color: green; padding: 10px 40px;"> Войти </button>
+                </a>
 
-    </div>
-      <a class="nav-link" href="/authorization">
-       <form class="d-flex">
-            <button class="btn btn-outline-success me-2" type="button" style="color: black; border-color: green; padding: 10px 40px;"> Войти </button>
-       </form></a>
-  </div>
+            <a class="nav-link" href={% url 'register' %}>
+                <button class="btn btn-outline-success me-2" type="button" style="color: black; border-color: green; padding: 10px 40px;"> Регистрация </button>
+            </a></form>
+        </div>
+    {% endif %}
+
+
+
+
 </nav>
 
 <div class="container">
