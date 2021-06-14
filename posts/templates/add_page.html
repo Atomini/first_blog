@@ -2,6 +2,7 @@
 
 {% block content %}
 
+    {% if  user.is_authenticated%}
     <h1 style="margin-bottom: 2%; margin-top: 3%">Новый пост</h1>
     <div class="form-group">
         <form method="post", enctype='multipart/form-data'>
@@ -17,5 +18,9 @@
         var name = "{{ user.id }}";
         document.getElementById("current_user").value = name;
     </script>
-
+    {% else  %}
+        <script>
+        window.location.href = '/'
+        </script>
+    {% endif %}
 {% endblock %}
